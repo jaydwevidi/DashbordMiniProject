@@ -1,13 +1,13 @@
 package com.example.dashbordminiproject
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,16 +20,29 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setupNavViewDrawer()
         setupRecyclerView()
+
+        newActivity.setOnClickListener {
+            startActivity(Intent(this , RegisterActivityNew::class.java))
+        }
     }
 
-    fun setupNavViewDrawer(){
-        val toggle = ActionBarDrawerToggle(this , drawerLayout , R.string.app_name , R.string.app_name )
+    private fun setupNavViewDrawer() {
+        val toggle = ActionBarDrawerToggle(
+            this,
+            drawerLayout,
+            R.string.app_name,
+            R.string.app_name
+        )
         this.toggle = toggle
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
         navView.setNavigationItemSelectedListener {
-            Toast.makeText(applicationContext, "jjjjjjjjj", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                applicationContext,
+                "jjjjjjjjj",
+                Toast.LENGTH_SHORT
+            ).show()
             Log.d("TAG", "setupNavViewDrawer: ")
             true
         }
@@ -44,32 +57,42 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+        if (drawerLayout.isDrawerOpen(GravityCompat.START))
             drawerLayout.closeDrawer(GravityCompat.START)
-        }
         else
             super.onBackPressed()
     }
 
-    private fun setupRecyclerView(){
+    private fun setupRecyclerView() {
         recyclerView1.apply {
             adapter = MyRecyclerAdapter(this@MainActivity)
-            layoutManager = LinearLayoutManager(applicationContext , LinearLayoutManager.HORIZONTAL , false)
+            layoutManager = LinearLayoutManager(
+                applicationContext,
+                LinearLayoutManager.HORIZONTAL,
+                false
+            )
         }
 
         recyclerView3.apply {
             adapter = MyRecyclerViewAdapterGrid(this@MainActivity)
-            layoutManager = GridLayoutManager(applicationContext , 3)
+            layoutManager = GridLayoutManager(
+                applicationContext,
+                3
+            )
         }
 
         recyclerView2.apply {
             adapter = MyRecyclerAdapter(this@MainActivity)
-            layoutManager = LinearLayoutManager(applicationContext , LinearLayoutManager.HORIZONTAL , false)
+            layoutManager = LinearLayoutManager(
+                applicationContext,
+                LinearLayoutManager.HORIZONTAL,
+                false
+            )
         }
     }
-    fun openDrawer(view :View){
-        if (!drawerLayout.isDrawerOpen(GravityCompat.START)){
+
+    private fun openDrawer(view: View) {
+        if (!drawerLayout.isDrawerOpen(GravityCompat.START))
             drawerLayout.openDrawer(GravityCompat.START)
-        }
     }
 }
