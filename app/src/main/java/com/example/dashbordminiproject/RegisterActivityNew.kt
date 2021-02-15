@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
 import android.widget.DatePicker
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_register_new.*
 import java.util.*
@@ -38,6 +39,11 @@ class RegisterActivityNew :
         year: Int,
         month: Int,
         dayOfMonth: Int) {
-        datePickerET.text = "$dayOfMonth/${month + 1}/$year "
+        datePickerET.setText("$dayOfMonth/${month + 1}/$year ")
+    }
+
+    fun registerButtonClicked(view: View){
+        Toast.makeText(this, "Registered", Toast.LENGTH_SHORT).show()
+        finish()
     }
 }

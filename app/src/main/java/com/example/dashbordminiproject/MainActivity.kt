@@ -20,10 +20,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setupNavViewDrawer()
         setupRecyclerView()
+    }
 
-        newActivity.setOnClickListener {
+    fun startRegisterActivity(view: View){
             startActivity(Intent(this , RegisterActivityNew::class.java))
-        }
     }
 
     private fun setupNavViewDrawer() {
@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun openDrawer(view: View) {
+    fun openDrawer(view: View) {
         if (!drawerLayout.isDrawerOpen(GravityCompat.START))
             drawerLayout.openDrawer(GravityCompat.START)
     }

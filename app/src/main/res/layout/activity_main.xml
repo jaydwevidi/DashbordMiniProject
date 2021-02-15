@@ -96,11 +96,6 @@
                     android:orientation="horizontal"
                     tools:listitem="@android:layout/simple_list_item_checked"
                     />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/newActivity"/>
             </LinearLayout>
 
 
