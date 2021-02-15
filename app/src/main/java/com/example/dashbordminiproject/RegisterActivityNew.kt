@@ -1,5 +1,4 @@
 package com.example.dashbordminiproject
-
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
@@ -39,7 +38,7 @@ class RegisterActivityNew :
         year: Int,
         month: Int,
         dayOfMonth: Int) {
-        datePickerET.setText("$dayOfMonth/${month + 1}/$year ")
+        datePickerET.text = "$dayOfMonth/${month + 1}/$year "
     }
 
     fun registerButtonClicked(view: View){
