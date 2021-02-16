@@ -5,16 +5,27 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.dashbordminiproject.models.City
+import com.example.dashbordminiproject.models.CompleteData
+import com.example.dashbordminiproject.retrofit.RFBuilder
+import com.example.otptest.models.OTP_Response
+import com.example.otptest.models.PhoneNumber
 import kotlinx.android.synthetic.main.activity_main.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle
+    private val TAG = "MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,8 +33,10 @@ class MainActivity : AppCompatActivity() {
         setupRecyclerView()
     }
 
+
+
     fun startRegisterActivity(view: View){
-            startActivity(Intent(this , RegisterActivityNew::class.java))
+            startActivity(Intent(this , PhoneVerification::class.java))
     }
 
     private fun setupNavViewDrawer() {

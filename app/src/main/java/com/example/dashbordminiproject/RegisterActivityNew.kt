@@ -19,6 +19,9 @@ class RegisterActivityNew :
         datePickerET.setOnClickListener {
             showDatePicker(datePickerET)
         }
+
+        val phoneNumber = intent.getStringExtra("phoneNumber")
+        PnInRegisterActivity.setText( phoneNumber )
     }
 
     fun showDatePicker(view: View) {
