@@ -45,7 +45,7 @@
         android:id="@+id/otpPinView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:itemCount="6"
+        app:itemCount="4"
         android:inputType="number"
         android:cursorVisible="true"
         style="@style/PinWidget.PinView"

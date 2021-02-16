@@ -7,14 +7,22 @@
     >
 
     <TextView
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
+        android:layout_marginTop="20dp"
         android:text="Phone\nNumeber\nVerification"
         android:textColor="#111"
         android:textSize="40sp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="40dp"
         android:textStyle="bold" />
+    <TextView
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="An OTP message will be senton this Number"
+        android:textColor="#111" />
 
     <EditText
         android:id="@+id/phoneNumberET"
@@ -27,6 +35,7 @@
         android:drawableStart="@drawable/ic_baseline_local_phone_24"
         android:background="@drawable/phone_verification_et_background"
         android:padding="10dp"
+        android:drawableTint="#111"
         android:drawablePadding="15dp"
         android:inputType="phone"
         />

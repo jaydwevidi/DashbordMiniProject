@@ -18,7 +18,7 @@ class OtpVerificationActivity : AppCompatActivity() {
 
         otpVerificationButton.setOnClickListener {
             otpVerificationResultTV.visibility = View.VISIBLE
-            val otpFromET = otpPinView.text.toString().substring(0,4)
+            val otpFromET = otpPinView.text.toString()
             if (otpFromET == otp) {
                 val intent = Intent(
                     applicationContext,
@@ -26,7 +26,7 @@ class OtpVerificationActivity : AppCompatActivity() {
                 )
                 intent.putExtra("phoneNumber", phoneNumber)
                 startActivity(intent)
-                otpVerificationResultTV.text = "Verification Complete"
+                //otpVerificationResultTV.text = "Verification Complete"
             }
             else {
                 otpVerificationResultTV.text = "Verification Failed Invalid OTP Try Again !!"
