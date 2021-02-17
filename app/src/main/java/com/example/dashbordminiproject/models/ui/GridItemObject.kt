@@ -1,4 +1,4 @@
-package com.example.dashbordminiproject.models
+package com.example.dashbordminiproject.models.ui
 
 data class GridItemObject(
     val row: Int = 0,

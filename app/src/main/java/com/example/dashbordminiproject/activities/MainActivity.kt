@@ -1,27 +1,20 @@
-package com.example.dashbordminiproject
+package com.example.dashbordminiproject.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.dashbordminiproject.models.City
-import com.example.dashbordminiproject.models.CompleteData
-import com.example.dashbordminiproject.retrofit.RFBuilder
-import com.example.otptest.models.OTP_Response
-import com.example.otptest.models.PhoneNumber
+import com.example.dashbordminiproject.recyclerViews.MyRecyclerAdapter
+import com.example.dashbordminiproject.recyclerViews.MyRecyclerViewAdapterGrid
+import com.example.dashbordminiproject.R
 import kotlinx.android.synthetic.main.activity_main.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle

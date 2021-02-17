@@ -1,7 +1,6 @@
-package com.example.dashbordminiproject
+package com.example.dashbordminiproject.recyclerViews
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.dashbordminiproject.R
 import kotlinx.android.synthetic.main.custom_item_for_recyclerview.view.*
 
 class MyRecyclerAdapter( var context: Context) :

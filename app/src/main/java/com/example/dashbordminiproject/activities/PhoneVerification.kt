@@ -1,28 +1,33 @@
-package com.example.dashbordminiproject
+package com.example.dashbordminiproject.activities
 
+import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.example.dashbordminiproject.R
+import com.example.dashbordminiproject.models.api.OTP_Response
+import com.example.dashbordminiproject.models.api.PhoneNumber
 import com.example.dashbordminiproject.retrofit.RFBuilder
-import com.example.otptest.models.OTP_Response
-import com.example.otptest.models.PhoneNumber
 import kotlinx.android.synthetic.main.activity_phone_verification.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 class PhoneVerification : AppCompatActivity() {
+
     private val TAG = "PhoneVerification"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_phone_verification)
     }
-    fun sendOTP(veiw : View){
+    fun sendOTP(veiw: View){
+        hideKeyboard(this)
         phoneVerificationButton.startAnimation()
         phoneVerificationButton.isClickable = false
         val built = RFBuilder()
@@ -37,11 +42,11 @@ class PhoneVerification : AppCompatActivity() {
                     Log.d(TAG, "onResponse OTP is: $otp")
                     Toast.makeText(
                         applicationContext,
-                        "otp sent to +91 $phoneNumber",
-                        Toast.LENGTH_SHORT
+                        "$otp sent to +91 $phoneNumber",
+                        Toast.LENGTH_LONG
                     ).show()
 
-                    OTP_Verifcation_activity(phoneNumber,otp)
+                    OTP_Verifcation_activity(phoneNumber, otp)
                 } else {
                     Log.d(TAG, "onResponse: ${response.code()}  ")
                 }
@@ -49,7 +54,7 @@ class PhoneVerification : AppCompatActivity() {
 
             override fun onFailure(
                 call: Call<OTP_Response>,
-                t   : Throwable
+                t: Throwable
             ) {
                 Toast.makeText(
                     applicationContext,
@@ -65,12 +70,23 @@ class PhoneVerification : AppCompatActivity() {
 
     private fun OTP_Verifcation_activity(
         phoneNumber: String,
-        otp:String
+        otp: String
     ) {
-        val intent = Intent(applicationContext , OtpVerificationActivity::class.java)
-        intent.putExtra("phoneNumber", phoneNumber)
+        val intent = Intent(applicationContext, OtpVerificationActivity::class.java)
+        intent.putExtra("phoneNumber", "+91$phoneNumber")
         intent.putExtra("otp", otp)
         startActivity(intent)
     }
 
+    fun hideKeyboard(activity: Activity) {
+        val imm: InputMethodManager =
+            activity.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        //Find the currently focused view, so we can grab the correct window token from it.
+        var view = activity.currentFocus
+        //If no view currently has focus, create a new one, just so we can grab a window token from it
+        if (view == null) {
+            view = View(activity)
+        }
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
+    }
 }

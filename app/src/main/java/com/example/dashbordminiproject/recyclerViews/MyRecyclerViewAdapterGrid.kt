@@ -1,15 +1,13 @@
-package com.example.dashbordminiproject
+package com.example.dashbordminiproject.recyclerViews
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.custom_item_for_recyclerview.view.*
+import com.example.dashbordminiproject.R
 import kotlinx.android.synthetic.main.item_for_recyclerview_tasks.view.*
 
 class MyRecyclerViewAdapterGrid( var context: Context) :
@@ -19,7 +17,7 @@ class MyRecyclerViewAdapterGrid( var context: Context) :
         var i1: ImageView = itemView.gridi1
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyRecyclerViewAdapterGrid.MyViewHolderGrid {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolderGrid {
         val view = LayoutInflater.from(parent.context).inflate(
             R.layout.item_for_recyclerview_tasks,
             parent,

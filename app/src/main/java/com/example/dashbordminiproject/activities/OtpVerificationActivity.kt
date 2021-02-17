@@ -1,61 +1,61 @@
-package com.example.dashbordminiproject
+package com.example.dashbordminiproject.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.View
-import androidx.core.widget.addTextChangedListener
+import com.example.dashbordminiproject.R
 import kotlinx.android.synthetic.main.activity_otp_verification.*
 
 class OtpVerificationActivity : AppCompatActivity() {
+
+    lateinit var phoneNumber: String
+    lateinit var otp: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_otp_verification)
-        val phoneNumber = intent.getStringExtra("phoneNumber")
-        phoneNumberTV.text = "+91 $phoneNumber"
-        val otp = intent.getStringExtra("otp")
+        phoneNumber = intent.getStringExtra("phoneNumber")!!
+        phoneNumberTV.text = phoneNumber
+        otp = intent.getStringExtra("otp")!!
 
+        setupTextChangeListeners()
+        otpVerificationButton.setOnClickListener {
+            startOTPVerification()
+        }
+    }
+
+    private fun setupTextChangeListeners() {
         otpPinView.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (s != null) {
-                    if (s.length == 4 && s.toString()==otp)
+                    if (s.length == 4 && s.toString() == otp)
                         startOTPVerification()
                 }
             }
 
             override fun afterTextChanged(s: Editable?) {
             }
-
-        }
-
-        )
-
-        otpVerificationButton.setOnClickListener {
-            startOTPVerification()
-        }
+        })
     }
-    fun startOTPVerification(){
-        val phoneNumber = intent.getStringExtra("phoneNumber")
-        val otp = intent.getStringExtra("otp")
-        otpVerificationResultTV.visibility = View.VISIBLE
-        Log.d("TAG", "otpIS: $otp ")
-        val otpFromET = otpPinView.text.toString()
-        if (otpFromET == otp) {
+
+    fun startOTPVerification() {
+        if (otpPinView.text.toString() == otp) {
+
             val intent = Intent(
                 applicationContext,
                 RegisterActivityNew::class.java
             )
             intent.putExtra("phoneNumber", phoneNumber)
+            intent.putExtra("otp", otp)
+
             startActivity(intent)
-            //otpVerificationResultTV.text = "Verification Complete"
-        }
-        else {
+        } else {
             otpVerificationResultTV.text = "Verification Failed Invalid OTP Try Again !!"
             otpPinView.setText("")
         }
