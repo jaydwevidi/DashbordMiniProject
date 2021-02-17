@@ -23,6 +23,7 @@ class PhoneVerification : AppCompatActivity() {
         setContentView(R.layout.activity_phone_verification)
     }
     fun sendOTP(veiw : View){
+        phoneVerificationButton.startAnimation()
         phoneVerificationButton.isClickable = false
         val built = RFBuilder()
         val phoneNumber = phoneNumberET.text.toString().trim()

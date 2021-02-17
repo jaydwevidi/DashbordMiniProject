@@ -1,62 +1,67 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="#ffe410"
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:background="#ffe410"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
         android:gravity="center"
         android:orientation="vertical">
+
         <TextView
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Register"
-            android:textSize="24sp"
-            />
+            android:text="Register\nNew User"
+            android:textColor="#111"
+            android:textSize="40sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:textStyle="bold" />
 
 
         <EditText
             android:drawableStart="@drawable/ic_baseline_person_outline_24"
             android:drawablePadding="4dp"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:background="@drawable/phone_verification_et_background"
+            android:layout_height="50dp"
             android:layout_marginHorizontal="40dp"
-            android:layout_marginVertical="20dp"
-            android:background="@drawable/round_border"
+            android:layout_marginVertical="10dp"
             android:hint="Name"
             android:drawableTint="#f00"
             android:inputType="textPersonName"
             android:padding="14dp" />
 
         <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/phone_verification_et_background"
             android:drawableStart="@drawable/ic_baseline_person_outline_24"
             android:drawablePadding="4dp"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginHorizontal="40dp"
-            android:layout_marginVertical="20dp"
-            android:background="@drawable/round_border"
-            android:hint="Password"
             android:drawableTint="#f00"
+            android:hint="Password"
             android:inputType="textPassword"
 
             android:padding="14dp" />
 
-        <TextView
+        <EditText
             android:id="@+id/PnInRegisterActivity"
             android:drawableStart="@drawable/ic_baseline_person_outline_24"
             android:drawablePadding="4dp"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginHorizontal="40dp"
-            android:editable="false"
-            android:layout_marginVertical="20dp"
-            android:background="@drawable/round_border"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/phone_verification_et_background"
             android:text="1234567890"
+            android:editable="false"
             android:gravity="center_vertical"
-            android:inputType="phone"
             android:drawableTint="#f00"
             android:padding="14dp"
             android:textSize="18sp"
@@ -67,10 +72,11 @@
             android:drawableStart="@drawable/ic_baseline_person_outline_24"
             android:drawablePadding="4dp"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginHorizontal="40dp"
-            android:layout_marginVertical="20dp"
-            android:background="@drawable/round_border"
+            android:layout_marginVertical="10dp"
+            android:text="safa"
+            android:background="@drawable/phone_verification_et_background"
             android:hint="E-Mail"
             android:drawableTint="#f00"
             android:inputType="textEmailAddress"
@@ -79,10 +85,10 @@
         <Button
             android:id="@+id/datePickerET"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginHorizontal="40dp"
-            android:layout_marginVertical="20dp"
-            android:background="@drawable/round_border"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/phone_verification_et_background"
             android:drawableStart="@drawable/ic_baseline_person_outline_24"
             android:drawablePadding="4dp"
             android:drawableTint="#f00"
@@ -94,15 +100,17 @@
             android:textSize="18sp" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_marginVertical="20dp"
-            android:background="@drawable/button_background"
             android:paddingVertical="15dp"
+            android:backgroundTint="#111"
             android:paddingHorizontal="59dp"
+            android:layout_marginHorizontal="70dp"
             android:text="Register"
             android:onClick="registerButtonClicked"
+            android:background="@drawable/round_border"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
 

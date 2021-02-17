@@ -49,4 +49,7 @@ dependencies {
 
     //pin View
     implementation 'com.chaos.view:pinview:1.4.4'
+
+    //Loading Button
+    implementation 'br.com.simplepass:loading-button-android:2.2.0'
 }

@@ -21,7 +21,7 @@ class RegisterActivityNew :
         }
 
         val phoneNumber = intent.getStringExtra("phoneNumber")
-        PnInRegisterActivity.setText( phoneNumber )
+        PnInRegisterActivity.setText("+91 $phoneNumber")
     }
 
     fun showDatePicker(view: View) {

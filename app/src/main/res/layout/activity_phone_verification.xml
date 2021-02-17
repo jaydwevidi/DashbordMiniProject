@@ -2,9 +2,10 @@
 <LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#fff176"
-    >
+    android:background="#ffe410"
+    android:gravity="center_horizontal">
 
     <TextView
         android:gravity="center"
@@ -40,20 +41,19 @@
         android:inputType="phone"
         />
 
-    <Button
+    <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
         android:id="@+id/phoneVerificationButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Next"
-        android:backgroundTint="#222"
         android:textColor="#FFF"
+        android:background="@drawable/round_border"
         android:textSize="20sp"
-        android:clickable="true"
         android:onClick="sendOTP"
         android:layout_marginHorizontal="70dp"
         android:layout_marginVertical="15dp"
-        android:background="@drawable/round_border"
+        app:spinning_bar_color="#fb743e"
         android:padding="10dp"
-        android:inputType="phone"
         />
+
 </LinearLayout>
