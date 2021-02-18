@@ -23,7 +23,7 @@ import retrofit2.Response
 import java.util.*
 
 
-class RegisterActivityNew :
+class UserRegisterActivity :
     AppCompatActivity(),
     DatePickerDialog.OnDateSetListener {
     private val TAG = "RegisterActivityNew"
@@ -43,6 +43,7 @@ class RegisterActivityNew :
     }
 
     fun showDatePicker(view: View) {
+        hideKeyboard(this)
         val calendar = Calendar.getInstance()
         DatePickerDialog(
             this,
@@ -129,8 +130,8 @@ class RegisterActivityNew :
         UserCode: String,
         Status: String) {
         val intent  = Intent(
-            this@RegisterActivityNew ,
-            UserDetailsActivity::class.java
+            this@UserRegisterActivity ,
+            UserLoginActivity::class.java
         )
         intent.putExtra("Message",Message)
         intent.putExtra("UserCode",UserCode)

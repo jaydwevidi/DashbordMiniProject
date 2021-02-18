@@ -50,7 +50,7 @@ class OtpVerificationActivity : AppCompatActivity() {
 
             val intent = Intent(
                 applicationContext,
-                RegisterActivityNew::class.java
+                UserRegisterActivity::class.java
             )
             intent.putExtra("phoneNumber", phoneNumber)
             intent.putExtra("otp", otp)

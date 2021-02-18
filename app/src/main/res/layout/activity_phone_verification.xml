@@ -120,7 +120,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="-70dp"
         android:background="@drawable/circle_white_background"
-        android:src="@drawable/ic_man"/>
+        android:src="@drawable/ic_phone"/>
 
 </RelativeLayout>
 

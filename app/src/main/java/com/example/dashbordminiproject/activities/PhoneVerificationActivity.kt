@@ -18,7 +18,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-class PhoneVerification : AppCompatActivity() {
+class PhoneVerificationActivity : AppCompatActivity() {
 
     private val TAG = "PhoneVerification"
 
@@ -29,7 +29,6 @@ class PhoneVerification : AppCompatActivity() {
     fun sendOTP(veiw: View){
         hideKeyboard(this)
         phoneVerificationButton.startAnimation()
-        phoneVerificationButton.isClickable = false
         val built = RFBuilder()
         val phoneNumber = phoneNumberET.text.toString().trim()
         val g: Call<OTP_Response> = built.placeHolderAPI.sendOTP(

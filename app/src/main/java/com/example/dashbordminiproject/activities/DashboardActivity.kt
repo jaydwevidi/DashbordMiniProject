@@ -11,25 +11,24 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.dashbordminiproject.R
 import com.example.dashbordminiproject.recyclerViews.MyRecyclerAdapter
 import com.example.dashbordminiproject.recyclerViews.MyRecyclerViewAdapterGrid
-import com.example.dashbordminiproject.R
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.dashboard.*
 
-class MainActivity : AppCompatActivity() {
+class DashboardActivity : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle
     private val TAG = "MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.dashboard)
         setupNavViewDrawer()
         setupRecyclerView()
     }
 
-
-
     fun startRegisterActivity(view: View){
-            startActivity(Intent(this , PhoneVerification::class.java))
+        //Being called from item_for_recyclerview_tasks.xml
+            startActivity(Intent(this , PhoneVerificationActivity::class.java))
             overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left )
     }
 
@@ -72,7 +71,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupRecyclerView() {
         recyclerView1.apply {
-            adapter = MyRecyclerAdapter(this@MainActivity)
+            adapter = MyRecyclerAdapter(this@DashboardActivity)
             layoutManager = LinearLayoutManager(
                 applicationContext,
                 LinearLayoutManager.HORIZONTAL,
@@ -81,7 +80,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         recyclerView3.apply {
-            adapter = MyRecyclerViewAdapterGrid(this@MainActivity)
+            adapter = MyRecyclerViewAdapterGrid(this@DashboardActivity)
             layoutManager = GridLayoutManager(
                 applicationContext,
                 3
@@ -89,7 +88,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         recyclerView2.apply {
-            adapter = MyRecyclerAdapter(this@MainActivity)
+            adapter = MyRecyclerAdapter(this@DashboardActivity)
             layoutManager = LinearLayoutManager(
                 applicationContext,
                 LinearLayoutManager.HORIZONTAL,
