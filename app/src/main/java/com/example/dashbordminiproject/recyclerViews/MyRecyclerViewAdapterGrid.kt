@@ -26,19 +26,6 @@ class MyRecyclerViewAdapterGrid( var context: Context) :
         return MyViewHolderGrid(view)
     }
 
-
-    fun getImageURL(name: String): String {
-        return when (name) {
-            "Delhi" -> "https://in.bmscdn.com/m6/images/common-modules/regions/ncr.png"
-            "Mumbai" -> "https://in.bmscdn.com/m6/images/common-modules/regions/mumbai.png"
-            "Banglore" -> "https://in.bmscdn.com/m6/images/common-modules/regions/bang.png"
-            "Hyderabad" -> "https://in.bmscdn.com/m6/images/common-modules/regions/hyd.png"
-            "Ahmedabad" -> "https://in.bmscdn.com/m6/images/common-modules/regions/ahd.png"
-            "Kolkatta" -> "https://in.bmscdn.com/m6/images/common-modules/regions/kolk.png"
-            else -> "https://in.bmscdn.com/m6/images/common-modules/regions/koch.png"
-        }
-    }
-
     override fun getItemCount(): Int {
         return 6
     }

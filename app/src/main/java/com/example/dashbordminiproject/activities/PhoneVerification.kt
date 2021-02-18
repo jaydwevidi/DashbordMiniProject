@@ -76,6 +76,7 @@ class PhoneVerification : AppCompatActivity() {
         intent.putExtra("phoneNumber", "+91$phoneNumber")
         intent.putExtra("otp", otp)
         startActivity(intent)
+        overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left )
     }
 
     fun hideKeyboard(activity: Activity) {

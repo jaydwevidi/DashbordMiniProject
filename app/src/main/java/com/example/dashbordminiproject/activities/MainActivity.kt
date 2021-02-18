@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
 
     fun startRegisterActivity(view: View){
             startActivity(Intent(this , PhoneVerification::class.java))
+            overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left )
     }
 
     private fun setupNavViewDrawer() {

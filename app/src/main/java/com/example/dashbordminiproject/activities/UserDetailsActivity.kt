@@ -18,7 +18,5 @@ class UserDetailsActivity : AppCompatActivity() {
         userStringDetails += "\n\n\n"
         userStringDetails += "\nStatus      :\n"
         userStringDetails += intent.getStringExtra("Status")
-
-        userDetailsTV.text = userStringDetails
     }
 }

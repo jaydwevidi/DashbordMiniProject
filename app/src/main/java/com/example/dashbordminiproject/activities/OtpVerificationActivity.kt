@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.widget.Toast
 import com.example.dashbordminiproject.R
 import kotlinx.android.synthetic.main.activity_otp_verification.*
 
@@ -53,11 +54,14 @@ class OtpVerificationActivity : AppCompatActivity() {
             )
             intent.putExtra("phoneNumber", phoneNumber)
             intent.putExtra("otp", otp)
-
             startActivity(intent)
+            overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left )
         } else {
-            otpVerificationResultTV.text = "Verification Failed Invalid OTP Try Again !!"
+            //otpVerificationResultTV.text = "Verification Failed Invalid OTP Try Again !!"
             otpPinView.setText("")
         }
+    }
+    fun showToastOTP(view: View){
+        Toast.makeText(applicationContext, otp, Toast.LENGTH_LONG).show()
     }
 }

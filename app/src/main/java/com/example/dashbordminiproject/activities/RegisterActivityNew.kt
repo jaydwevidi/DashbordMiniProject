@@ -59,7 +59,7 @@ class RegisterActivityNew :
         month: Int,
         dayOfMonth: Int
     ) {
-        datePickerET.text = "$dayOfMonth/${month + 1}/$year "
+        datePickerET.setText("$dayOfMonth/${month + 1}/$year ")
     }
 
     fun registerButtonClicked(view: View) {
@@ -96,6 +96,7 @@ class RegisterActivityNew :
 
                     val responseJson = Gson().toJson(response.body())
                     Log.d(TAG, "onResponse: = $responseJson")
+
                     toUserDetails(
                         response.body()!!.Message,
                         response.body()!!.UserCode,
@@ -134,8 +135,8 @@ class RegisterActivityNew :
         intent.putExtra("Message",Message)
         intent.putExtra("UserCode",UserCode)
         intent.putExtra("Status",Status)
-
         startActivity(intent)
+        overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left )
     }
 
     fun hideKeyboard(activity: Activity) {

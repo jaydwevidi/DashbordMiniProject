@@ -1,121 +1,185 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#ffe410"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e65f5c"
+    android:gravity="center"
+    android:padding="16dp">
 
-    <LinearLayout
-        android:background="#ffe410"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_gravity="center">
 
-        <TextView
-            android:gravity="center"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
+            android:background="#FFF"
             android:layout_height="wrap_content"
-            android:text="Register\nNew User"
-            android:textColor="#111"
-            android:textSize="40sp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:textStyle="bold" />
+            android:layout_margin="5dp"
+            android:padding="10dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
 
 
-        <EditText
-            android:id="@+id/stu_name_ET"
-            android:drawableStart="@drawable/ic_baseline_person_outline_24"
-            android:drawablePadding="4dp"
-            android:layout_width="match_parent"
-            android:background="@drawable/phone_verification_et_background"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="40dp"
-            android:layout_marginVertical="10dp"
-            android:hint="Name"
-            android:drawableTint="#f00"
-            android:inputType="textPersonName"
-            android:padding="14dp" />
 
-        <EditText
-            android:id="@+id/pin_ET"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="40dp"
-            android:layout_marginVertical="10dp"
-            android:background="@drawable/phone_verification_et_background"
-            android:drawableStart="@drawable/ic_baseline_person_outline_24"
-            android:drawablePadding="4dp"
-            android:drawableTint="#f00"
-            android:hint="Password"
-            android:inputType="textPassword"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="30dp"
+                android:orientation="vertical">
 
-            android:padding="14dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Register"
+                    android:textColor="#111"
+                    android:textSize="34dp"
+                    android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/PnInRegisterActivity"
-            android:drawableStart="@drawable/ic_baseline_person_outline_24"
-            android:drawablePadding="4dp"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="40dp"
-            android:layout_marginVertical="10dp"
-            android:background="@drawable/phone_verification_et_background"
-            android:text="1234567890"
-            android:editable="false"
-            android:gravity="center_vertical"
-            android:drawableTint="#f00"
-            android:padding="14dp"
-            android:textSize="18sp"
-            />
+                <EditText
+                    android:layout_marginVertical="5dp"
+                    android:id="@+id/stu_name_ET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Name"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:paddingStart="5dp"
+                    android:drawableStart="@drawable/ic_baseline_person_24"
+                    android:drawableTint="#F00"
+                    android:singleLine="true"/>
+
+                <EditText
+                    android:id="@+id/stu_email_register_ET"
+                    android:layout_marginVertical="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="E-mail"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:paddingStart="5dp"
+                    android:drawableStart="@drawable/ic_baseline_email_24"
+                    android:drawableTint="#F00"
+                    android:drawablePadding="5dp"
+                    android:singleLine="true"/>
 
 
-        <EditText
-            android:drawableStart="@drawable/ic_baseline_person_outline_24"
-            android:drawablePadding="4dp"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="40dp"
-            android:layout_marginVertical="10dp"
-            android:text="safa"
-            android:background="@drawable/phone_verification_et_background"
-            android:hint="E-Mail"
-            android:drawableTint="#f00"
-            android:inputType="textEmailAddress"
-            android:padding="14dp" />
 
-        <Button
-            android:id="@+id/datePickerET"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="40dp"
-            android:layout_marginVertical="10dp"
-            android:background="@drawable/phone_verification_et_background"
-            android:drawableStart="@drawable/ic_baseline_person_outline_24"
-            android:drawablePadding="4dp"
-            android:drawableTint="#f00"
-            android:editable="false"
-            android:fontFamily="sans-serif"
-            android:gravity="left|center_vertical"
-            android:hint="Date Of Birth"
-            android:padding="14dp"
-            android:textSize="18sp" />
 
-        <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
-            android:layout_width="match_parent"
-            android:id="@+id/registerButton"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginVertical="20dp"
-            android:paddingVertical="15dp"
-            app:spinning_bar_color="#fb743e"
-            android:paddingHorizontal="59dp"
-            android:layout_marginHorizontal="70dp"
-            android:text="Register"
-            android:onClick="registerButtonClicked"
-            android:background="@drawable/round_border"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold" />
+                <EditText
+                    android:layout_marginVertical="5dp"
+                    android:id="@+id/pin_ET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="Password"
+                    android:drawablePadding="5dp"
+                    android:drawableTint="#F00"
+                    android:drawableStart="@drawable/ic_baseline_lock_24"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:paddingStart="5dp"
+                    android:singleLine="true"/>
 
-    </LinearLayout>
-</ScrollView>
+                <EditText
+                    android:id="@+id/PnInRegisterActivity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginTop="10dp"
+                    android:drawableStart="@drawable/ic_baseline_phone_24"
+                    android:drawablePadding="5dp"
+                    android:drawableTint="#F00"
+                    android:editable="false"
+                    android:hint="Phone"
+                    android:maxLines="1"
+                    android:paddingStart="5dp"
+                    android:singleLine="true" />
+
+                <EditText
+                    android:id="@+id/datePickerET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginTop="10dp"
+                    android:focusable="false"
+                    android:drawableStart="@drawable/ic_baseline_calendar_today_24"
+                    android:drawablePadding="5dp"
+                    android:drawableTint="#F00"
+                    android:editable="false"
+                    android:hint="Date of Birth"
+                    android:inputType="none"
+                    android:maxLines="1"
+                    android:paddingStart="5dp"
+                    android:singleLine="true" />
+
+
+
+                <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+                    android:id="@+id/registerButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:text="Register"
+                    android:layout_marginVertical="5dp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#f9f871"
+                    android:gravity="center"
+                    android:onClick="registerButtonClicked"
+                    app:spinning_bar_color="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_gravity="center_horizontal"
+                    >
+                    <TextView
+                        android:gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#222"
+                        android:text="New User ?  "
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/registerTV"
+                        android:gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Register."
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"/>
+
+
+
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/profile"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:padding="15dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-70dp"
+        android:background="@drawable/circle_white_background"
+        android:src="@drawable/ic_man"/>
+
+</RelativeLayout>

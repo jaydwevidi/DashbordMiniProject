@@ -1,4 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e65f5c"
+    android:gravity="center"
+    android:padding="16dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:background="#FFF"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:padding="10dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginVertical="30dp"
+                android:layout_marginHorizontal="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="OTP Verification"
+                    android:textColor="#111"
+                    android:textSize="34dp"
+                    android:layout_marginVertical="10dp"
+                    android:textStyle="bold" />
+
+                <com.chaos.view.PinView
+                    app:itemSpacing="10dp"
+                    app:cursorColor="#F00"
+                    android:id="@+id/otpPinView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:itemCount="4"
+                    android:inputType="number"
+                    android:layout_marginVertical="10dp"
+                    android:cursorVisible="true"
+                    android:layout_gravity="center_horizontal"
+                    style="@style/PinWidget.PinView"
+                    />
+
+                <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+                    android:id="@+id/otpVerificationButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:text="Next"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#f9f871"
+                    android:layout_marginVertical="10dp"
+                    android:gravity="center"
+                    app:spinning_bar_color="@color/colorPrimary"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_horizontal"
+                    >
+                    <TextView
+                        android:gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#222"
+                        android:text="Enter the OTP sent on :"
+                        android:textSize="16sp"/>
+                    <TextView
+                        android:id="@+id/phoneNumberTV"
+                        android:gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="+91 7800847049"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"/>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+    <ImageView
+        android:onClick="showToastOTP"
+        android:id="@+id/profile"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:padding="15dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-70dp"
+        android:background="@drawable/circle_white_background"
+        android:src="@drawable/ic_man"/>
+
+</RelativeLayout>
+    <!--
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -76,4 +194,4 @@
         android:textColor="#F00"
         />
 
-</LinearLayout>
+</LinearLayout>-->
