@@ -7,11 +7,14 @@ import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import com.example.dashbordminiproject.R
 import com.example.dashbordminiproject.models.api.OTP_Response
 import com.example.dashbordminiproject.models.api.PhoneNumber
 import com.example.dashbordminiproject.retrofit.RFBuilder
+import com.example.dashbordminiproject.ui.MyViewModel
 import kotlinx.android.synthetic.main.activity_phone_verification.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -29,9 +32,30 @@ class PhoneVerificationActivity : AppCompatActivity() {
     fun sendOTP(veiw: View){
         hideKeyboard(this)
         phoneVerificationButton.startAnimation()
-        val built = RFBuilder()
-        val phoneNumber = phoneNumberET.text.toString().trim()
-        val g: Call<OTP_Response> = built.placeHolderAPI.sendOTP(
+        val phoneNumber = PhoneNumber(phoneNumberET.text.toString().trim())
+        val myViewModel: MyViewModel by viewModels()
+        myViewModel.sendOTP(phoneNumber)
+        myViewModel.sendOTP(phoneNumber)
+        myViewModel.mResponse.observe(this , Observer {
+            val response = it
+            if (response.isSuccessful) {
+                val otp = response.body()!!.OTP.str_OTP
+                Log.d(TAG, "onResponse OTP is: $otp")
+
+                /*Toast.makeText(
+                    applicationContext,
+                    "$otp sent to +91 $phoneNumber",
+                    Toast.LENGTH_LONG
+                ).show()*/
+
+                To_OTP_Verifcation_activity(phoneNumber.PhoneNo, otp)
+            } else {
+                Log.d(TAG, "onResponse: ${response.code()}  ")
+            }
+        }
+        )
+
+        /*val g: Call<OTP_Response> = built.placeHolderAPI.sendOTP(
             PhoneNumber("+91$phoneNumber")
         )
         g.enqueue(object : Callback<OTP_Response> {
@@ -45,7 +69,7 @@ class PhoneVerificationActivity : AppCompatActivity() {
                         Toast.LENGTH_LONG
                     ).show()
 
-                    OTP_Verifcation_activity(phoneNumber, otp)
+                    To_OTP_Verifcation_activity(phoneNumber, otp)
                 } else {
                     Log.d(TAG, "onResponse: ${response.code()}  ")
                 }
@@ -64,10 +88,10 @@ class PhoneVerificationActivity : AppCompatActivity() {
                 Log.e(TAG, "onFailure: $t", t)
             }
 
-        })
+        })*/
     }
 
-    private fun OTP_Verifcation_activity(
+    private fun To_OTP_Verifcation_activity(
         phoneNumber: String,
         otp: String
     ) {

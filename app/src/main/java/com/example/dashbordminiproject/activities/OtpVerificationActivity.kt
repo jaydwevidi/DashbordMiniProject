@@ -7,7 +7,9 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import com.example.dashbordminiproject.R
+import com.example.dashbordminiproject.ui.MyViewModel
 import kotlinx.android.synthetic.main.activity_otp_verification.*
 
 class OtpVerificationActivity : AppCompatActivity() {
@@ -18,6 +20,9 @@ class OtpVerificationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_otp_verification)
+
+        val myViewModel: MyViewModel by viewModels()
+        phoneNumber = myViewModel.otp
         phoneNumber = intent.getStringExtra("phoneNumber")!!
         phoneNumberTV.text = phoneNumber
         otp = intent.getStringExtra("otp")!!
